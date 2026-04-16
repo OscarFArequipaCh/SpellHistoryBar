@@ -1,0 +1,9 @@
+## Interface: 40300
+## Title: SpellHistoryBar
+## Notes: Muestra las últimas habilidades lanzadas
+## Author: Oscar A. Chavarria
+## Version: 1.0
+## SavedVariables: SpellHistoryBarSettings
+
+SpellHistoryBarSpellLists.lua
+SpellHistoryBar.lua
