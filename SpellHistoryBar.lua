@@ -85,6 +85,13 @@ local function UpdateFrame()
     local maxIcons = GetSetting("maxIcons")
     local point = SpellHistoryBarSettings.point or DEFAULTS.point
 
+    -- Fix for saved settings with "UIParent" as string
+    if type(point[2]) == "string" and point[2] == "UIParent" then
+        point = {point[1], UIParent, point[3], point[4], point[5]}
+    elseif point[2] ~= UIParent then
+        point = DEFAULTS.point
+    end
+
     local width = math.max(iconSize, (iconSize + spacing) * maxIcons - spacing)
     local height = iconSize
     SHB:SetSize(width, height)
