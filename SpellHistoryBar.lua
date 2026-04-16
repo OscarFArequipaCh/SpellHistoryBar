@@ -15,7 +15,7 @@ local DEFAULTS = {
     point = {"CENTER", UIParent, "CENTER", 0, -200},
     iconSize = 32,
     iconSpacing = 4,
-    maxIcons = 5,
+    maxIcons = 8,
     fadeTime = 5,
     locked = true,
 }

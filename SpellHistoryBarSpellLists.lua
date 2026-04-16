@@ -1,34 +1,34 @@
 SpellHistoryBar = SpellHistoryBar or {}
 
 SpellHistoryBar.CONTROL_SPELLS = {
-    [33786] = true,  -- Cyclone(ciclón)
-    [339] = true,    -- Entangling Roots(enredaderas)
-    [51514] = true,  -- Hex(maldicion)
-    [2637] = true,   -- Disengage(invernar)
-    [118] = true,    -- Polymorph(polimorfia)
+    -- Add the specific IDs of your control spells here.
+    [33786] = true,  -- Cyclone
+    [339] = true,    -- Entangling Roots
+    [51514] = true,  -- Hex
+    [2637] = true,   -- Disengage
+    [118] = true,    -- Polymorph
     [28272] = true,  -- Pig Polymorph
     [28271] = true,  -- Turtle Polymorph
     [28270] = true,  -- Rabbit Polymorph
     [28269] = true,  -- Sheep Polymorph
     [28268] = true,  -- Monkey Polymorph
     [2641] = true,   -- dismiss-pet
-    [34914] = true,  -- Vampiric Touch(toque vampirico)
-    [710] = true,    -- Banish(desterrar)
-    [605] = true,    -- Mind Control(control mental)
-    [9484] = true,   -- Shackle Undead(encadenar a los no-muertos)
-    [30108] = true,  -- Unstable Affliction(afliccion inestable)
-    [5782] = true,   -- Fear(miedo)
-    [1513] = true,   -- Intimidating Shout(asustar bestia)
-    [76780] = true,  -- Bind Elemental(vincular elemental)
-    [49203] = true,  -- Hungering Cold(frío hambriento)
-    [65116] = true,  -- Stoneform(Racial enano: piedra forma)
-    [20549] = true,  -- War Stomp(racial tauren: golper de guerra)
-
-    -- Agrega aquí los IDs específicos de tus hechizos de control
+    [34914] = true,  -- Vampiric Touch
+    [710] = true,    -- Banish
+    [605] = true,    -- Mind Control
+    [9484] = true,   -- Shackle Undead
+    [30108] = true,  -- Unstable Affliction
+    [5782] = true,   -- Fear
+    [1513] = true,   -- Intimidating Shout
+    [76780] = true,  -- Bind Elemental
+    [49203] = true,  -- Hungering Cold
+    [65116] = true,  -- Stoneform
+    [20549] = true,  -- War Stomp
+    -- [12654] = true,  -- ignite (Activate it if you want to be able to see when ignite is launched.)  
 }
 
 SpellHistoryBar.BLACKLIST_SPELLS = {
-    -- Hechizos automáticos o pasivos
+    -- Hechizos automáticos o pasivos Automatic or passive spells
     -- Warrior
     [44949] = true,  -- whirlwind-off-hand (subskill off-hand)
     [20253] = true,  -- intercept (effect stun)
@@ -117,7 +117,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [63106] = true,  -- siphon-life (passive affliction talents)
     [48210] = true,  -- haunt (healing effect)
 
-    -- Encantamientos de clase a armas(Death Knight, Rogue, Shaman)
+    -- Class enchantments on weapons(Death Knight, Rogue, Shaman)
     [50401] = true,  -- Razorice (Effect Rune)
     [53365] = true,  -- unholy-strength (Effect Rune)
     [8680] = true,   -- Instant Poison (effect poison)
@@ -129,7 +129,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [73685] = true,  -- Unleash Life (inbution effect)
     [74194] = true,  -- Mending (enchanting effect)
 
-    -- Hechizos de objetos específicos (ejemplo: No´Kaled, Fetiche, etc.)
+    -- Specific item spells (example: No´Kaled, Fetiche, etc.)
     [107789] = true, -- Iceblast (Item: No´Kaled)
     [109872] = true, -- Flameblast (Item: No´Kaled)
     [107785] = true, -- flameblast (Item: No´Kaled)
