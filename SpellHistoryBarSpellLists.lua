@@ -63,6 +63,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [47632] = true,  -- death-coil(subskill)
     [42651] = true,  -- army-of-the-dead(summoning effect)
     [45470] = true,  -- death-strike(healing efect)
+    [70890] = true,  -- scourge-strike (subskill)
     -- Druid
     [16953] = true,  -- Primal Fury (passive feral talents)
     [81269] = true,  -- efflorescence (pasive effect)
@@ -85,6 +86,8 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [52752] = true,  -- ancestral-awakening(passive restoration talents)
     [26364] = true,  -- Lightning Shield (effect hit returned)
     [88767] = true,  -- fulmination (passive elemental-combat talents)
+    [379] = true,    -- earth-shield (effect hit returned)
+    [73921] = true,  -- Healing Rain (pasive effect)
     -- Hunter
     [76663] = true,  -- wild-quiver (passive marksmanship talents)
     [53353] = true,  -- disparo-de-quimera (healing efect)
@@ -99,6 +102,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [56160] = true,  -- glyph-of-power-word-shield (glyph effect)
     [23455] = true,  -- holy-nova (effect additional hits)
     [20473] = true,  -- holy-shock (subskill)
+    [88686] = true,  -- Holy Word: Sanctuary (pasive effect)
     -- Mage
     [84721] = true,  -- frostfire-orb (pasive effect)
     [82739] = true,  -- flame-orb (pasive effect)
@@ -127,6 +131,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [73682] = true,  -- Unleash Earth (inbution effect)
     [73684] = true,  -- Unleash Frost (inbution effect)
     [73685] = true,  -- Unleash Life (inbution effect)
+    [25504] = true,  -- windfury-attack (inbution effect)
     [74194] = true,  -- Mending (enchanting effect)
 
     -- Specific item spells (example: No´Kaled, Fetiche, etc.)
@@ -147,4 +152,17 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [108022] = true, -- Drain Life (Item: Bebedora de almas)
     [107994] = true, -- Lightning Strike (item: Nokaled?)
     [107835] = true, -- cleansing-flames(item: Fauce)
+}
+
+SpellHistoryBar.PROJECTILE_SPELLS = {
+    -- Spells with projectiles that cause duplicates with SPELL_CAST_SUCCESS and SPELL_DAMAGE
+    [3044] = true,   -- Arcane Shot
+    [53209] = true,  -- Chimera Shot
+    [2643] = true,  -- Multi-Shot
+}
+
+SpellHistoryBar.CAST_START_SPELLS = {
+    -- Spells that are detected with SPELL_CAST_START
+    [88685] = true,  -- Holy Word: Sanctuary
+    [73920] = true,  -- Healing Rain
 }

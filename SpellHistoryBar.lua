@@ -16,7 +16,7 @@ local DEFAULTS = {
     iconSize = 32,
     iconSpacing = 4,
     maxIcons = 8,
-    fadeTime = 5,
+    fadeTime = 8,
     locked = true,
 }
 
@@ -24,6 +24,8 @@ local icons = {}
 local recentSpells = {}
 local CONTROL_SPELLS = SpellHistoryBar.CONTROL_SPELLS or {}
 local BLACKLIST_SPELLS = SpellHistoryBar.BLACKLIST_SPELLS or {}
+local PROJECTILE_SPELLS = SpellHistoryBar.PROJECTILE_SPELLS or {}
+local CAST_START_SPELLS = SpellHistoryBar.CAST_START_SPELLS or {}
 
 local function PrintMessage(msg)
     DEFAULT_CHAT_FRAME:AddMessage("|cff00ff00SpellHistoryBar:|r " .. msg)
@@ -121,7 +123,7 @@ local function AddSpell(spellID)
     if BLACKLIST_SPELLS[spellID] then
         return
     end
-    
+
     if recentSpells[spellID] and GetTime() - recentSpells[spellID] < 0.5 then
         return
     end
@@ -272,8 +274,9 @@ SHB:SetScript("OnEvent", function(self, event, ...)
 
     if subevent == "SPELL_CAST_SUCCESS"
     or subevent == "SPELL_HEAL"
-    or subevent == "SPELL_DAMAGE"
-    or subevent == "SPELL_SUMMON" then
+    or subevent == "SPELL_SUMMON"
+    or (subevent == "SPELL_CAST_START" and CAST_START_SPELLS[spellID])
+    or (subevent == "SPELL_DAMAGE" and not PROJECTILE_SPELLS[spellID]) then
         if spellID and spellID > 0 then
             AddSpell(spellID)
         end
