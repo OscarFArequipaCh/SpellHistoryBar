@@ -64,6 +64,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [42651] = true,  -- army-of-the-dead(summoning effect)
     [45470] = true,  -- death-strike(healing efect)
     [70890] = true,  -- scourge-strike (subskill)
+    [50452] = true,  -- blood-parasite (passive blood talents)
     -- Druid
     [16953] = true,  -- Primal Fury (passive feral talents)
     [81269] = true,  -- efflorescence (pasive effect)
@@ -103,6 +104,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [23455] = true,  -- holy-nova (effect additional hits)
     [20473] = true,  -- holy-shock (subskill)
     [88686] = true,  -- Holy Word: Sanctuary (pasive effect)
+    [87426] = true,  -- shadowy-apparition (passive shadow talents)
     -- Mage
     [84721] = true,  -- frostfire-orb (pasive effect)
     [82739] = true,  -- flame-orb (pasive effect)
@@ -151,7 +153,9 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [108000] = true, -- nick-of-time(item: guardavientos)
     [108022] = true, -- Drain Life (Item: Bebedora de almas)
     [107994] = true, -- Lightning Strike (item: Nokaled?)
+    [109870] = true, -- Iceblast (Item: No´Kaled heroica)
     [107835] = true, -- cleansing-flames(item: Fauce)
+    [109831] = true, -- drain-life (Item: Bebedora de almas heroica)
 }
 
 SpellHistoryBar.PROJECTILE_SPELLS = {
