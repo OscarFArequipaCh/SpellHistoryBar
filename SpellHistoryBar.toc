@@ -2,8 +2,13 @@
 ## Title: SpellHistoryBar
 ## Notes: Muestra las últimas habilidades lanzadas
 ## Author: Oscar A. Chavarria
-## Version: 1.0
+## Version: 2.1
 ## SavedVariables: SpellHistoryBarSettings
 
 SpellHistoryBarSpellLists.lua
+SpellHistoryBar_Config.lua
+SpellHistoryBar_UI.lua
+SpellHistoryBar_Core.lua
+SpellHistoryBar_Commands.lua
+SpellHistoryBar_ConfigUI.lua
 SpellHistoryBar.lua
