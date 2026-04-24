@@ -11,4 +11,5 @@ SpellHistoryBar_UI.lua
 SpellHistoryBar_Core.lua
 SpellHistoryBar_Commands.lua
 SpellHistoryBar_ConfigUI.lua
+SpellHistoryBar_Minimap.lua
 SpellHistoryBar.lua

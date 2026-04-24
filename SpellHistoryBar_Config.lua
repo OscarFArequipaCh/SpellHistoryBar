@@ -13,6 +13,7 @@ SpellHistoryBar.Config.DEFAULTS = {
     maxIcons = 8,
     fadeTime = 8,
     locked = true,
+    minimap = { angle = 45 },
 }
 
 -- ============================================================================
@@ -47,6 +48,9 @@ function SpellHistoryBar.Config:ApplyDefaults()
     end
     if SpellHistoryBarSettings.locked == nil then
         SpellHistoryBarSettings.locked = defaults.locked
+    end
+    if not SpellHistoryBarSettings.minimap then
+        SpellHistoryBarSettings.minimap = { angle = defaults.minimap.angle }
     end
 end
 

@@ -39,6 +39,9 @@ function SpellHistoryBar:Initialize()
     -- Crear frame UI
     SpellHistoryBar.UI:InitializeFrame()
     
+    -- Inicializar botón del minimapa
+    SpellHistoryBar.Minimap:Initialize()
+    
     -- Actualizar visual
     self:Refresh()
     
