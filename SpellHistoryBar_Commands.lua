@@ -19,8 +19,8 @@ end
 
 function SpellHistoryBar.Commands:ShowHelp()
     self:PrintMessage("Comandos disponibles:")
+    self:PrintMessage("/shb - abre o cierra la ventana de configuración")
     self:PrintMessage("/shb help - muestra este mensaje")
-    self:PrintMessage("/shb config - abre la ventana de configuración")
     self:PrintMessage("/shb move - alterna el modo de movimiento")
     self:PrintMessage("/shb size <16-64> - ajusta el tamaño de los iconos")
     self:PrintMessage("/shb max <1-10> - ajusta la cantidad máxima de iconos")
@@ -86,10 +86,10 @@ function SpellHistoryBar.Commands:HandleCommand(msg)
     local command, arg = msg:match("^(%S*)%s*(.-)%s*$")
     command = command:lower()
     
-    if command == "" or command == "help" then
-        self:ShowHelp()
-    elseif command == "config" then
+    if command == "" then
         SpellHistoryBar:ToggleConfig()
+    elseif command == "help" then
+        self:ShowHelp()
     elseif command == "move" then
         self:ToggleLock()
     elseif command == "size" then
