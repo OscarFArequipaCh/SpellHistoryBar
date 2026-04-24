@@ -34,7 +34,7 @@ end
 
 function SpellHistoryBar:Initialize()
     -- Cargar configuración
-    SpellHistoryBar.Config:Initialize()
+    SpellHistoryBar.Config:Initialize()  
     
     -- Crear frame UI
     SpellHistoryBar.UI:InitializeFrame()
@@ -55,7 +55,9 @@ function SpellHistoryBar:Initialize()
             if event == "ADDON_LOADED" then
                 local addonName = ...
                 if addonName == "SpellHistoryBar" then
+                    print("ADDON_LOADED inicializando")
                     SpellHistoryBar.Config:Initialize()
+                    SpellHistoryBar.Minimap:Initialize()
                     SpellHistoryBar:Refresh()
                     return
                 end

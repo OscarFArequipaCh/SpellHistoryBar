@@ -51,6 +51,8 @@ function SpellHistoryBar.Config:ApplyDefaults()
     end
     if not SpellHistoryBarSettings.minimap then
         SpellHistoryBarSettings.minimap = { angle = defaults.minimap.angle }
+    elseif not SpellHistoryBarSettings.minimap.angle then
+        SpellHistoryBarSettings.minimap.angle = defaults.minimap.angle
     end
 end
 
