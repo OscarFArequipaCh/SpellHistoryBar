@@ -106,6 +106,7 @@ function SpellHistoryBar.UI:UpdateFrame()
     
     -- Aplicar tamaño y posición
     mainFrame:SetSize(width, height)
+    mainFrame:ClearAllPoints()
     mainFrame:SetPoint(unpack(point))
     
     -- Actualizar fondo

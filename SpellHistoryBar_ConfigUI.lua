@@ -9,6 +9,13 @@ SpellHistoryBar.ConfigUI = SpellHistoryBar.ConfigUI or {}
 local configFrame = nil
 local isConfigVisible = false
 
+-- Controles de la UI
+local iconSizeSlider = nil
+local maxIconsSlider = nil
+local fadeTimeSlider = nil
+local lockedCheckbox = nil
+local resetButton = nil
+
 -- ============================================================================
 -- Crear la Ventana de Configuración
 -- ============================================================================
@@ -68,6 +75,9 @@ function SpellHistoryBar.ConfigUI:CreateConfigFrame()
         self:StopMovingOrSizing()
     end)
     
+    -- Poblar la ventana con controles
+    self:PopulateConfigFrame(frame)
+    
     -- Mantener el frame oculto al inicio
     frame:Hide()
     
@@ -75,6 +85,141 @@ function SpellHistoryBar.ConfigUI:CreateConfigFrame()
     isConfigVisible = false
     
     return frame
+end
+
+-- ============================================================================
+-- Poblar la Ventana de Configuración con Controles
+-- ============================================================================
+
+function SpellHistoryBar.ConfigUI:PopulateConfigFrame(frame)
+    local yOffset = -35  -- Empezar debajo de la barra de título
+    
+    -- Slider para iconSize
+    iconSizeSlider = self:CreateSlider(frame, "Tamaño de Iconos", 16, 64, yOffset, "iconSize")
+    yOffset = yOffset - 60
+    
+    -- Slider para maxIcons
+    maxIconsSlider = self:CreateSlider(frame, "Máximo de Iconos", 1, 10, yOffset, "maxIcons")
+    yOffset = yOffset - 60
+    
+    -- Slider para fadeTime
+    fadeTimeSlider = self:CreateSlider(frame, "Tiempo de Desvanecimiento (seg)", 1, 20, yOffset, "fadeTime")
+    yOffset = yOffset - 60
+    
+    -- Checkbox para locked
+    lockedCheckbox = self:CreateCheckbox(frame, "Desbloquear Barra", yOffset, "locked")
+    yOffset = yOffset - 40
+    
+    -- Botón de reset
+    resetButton = self:CreateResetButton(frame, yOffset)
+end
+
+-- ============================================================================
+-- Crear un Slider
+-- ============================================================================
+
+function SpellHistoryBar.ConfigUI:CreateSlider(parent, label, minVal, maxVal, yOffset, key)
+    local slider = CreateFrame("Slider", nil, parent, "OptionsSliderTemplate")
+    slider:SetPoint("TOPLEFT", parent, "TOPLEFT", 20, yOffset)
+    slider:SetWidth(300)
+    slider:SetHeight(20)
+    slider:SetMinMaxValues(minVal, maxVal)
+    slider:SetValueStep(1)
+    
+    -- Etiqueta del slider
+    local sliderLabel = slider:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    sliderLabel:SetPoint("BOTTOMLEFT", slider, "TOPLEFT", 0, 5)
+    sliderLabel:SetText(label)
+    sliderLabel:SetTextColor(1, 1, 1, 1)
+    
+    -- Texto del valor actual
+    local valueText = slider:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    valueText:SetPoint("BOTTOMRIGHT", slider, "TOPRIGHT", 0, 5)
+    valueText:SetTextColor(1, 0.8, 0, 1)
+    
+    -- Función para actualizar el texto del valor
+    local function UpdateValueText()
+        valueText:SetText(math.floor(slider:GetValue()))
+    end
+    
+    -- Script OnValueChanged
+    slider:SetScript("OnValueChanged", function(self, value)
+        UpdateValueText()
+        SpellHistoryBar:Set(key, math.floor(value))
+    end)
+    
+    -- Inicializar valor
+    UpdateValueText()
+    
+    return slider
+end
+
+-- ============================================================================
+-- Crear un Checkbox
+-- ============================================================================
+
+function SpellHistoryBar.ConfigUI:CreateCheckbox(parent, label, yOffset, key)
+    local checkbox = CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
+    checkbox:SetPoint("TOPLEFT", parent, "TOPLEFT", 20, yOffset)
+    checkbox:SetWidth(25)
+    checkbox:SetHeight(25)
+    
+    -- Etiqueta del checkbox
+    local checkboxLabel = checkbox:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    checkboxLabel:SetPoint("LEFT", checkbox, "RIGHT", 5, 0)
+    checkboxLabel:SetText(label)
+    checkboxLabel:SetTextColor(1, 1, 1, 1)
+    
+    -- Script OnClick
+    checkbox:SetScript("OnClick", function(self)
+        SpellHistoryBar:Set(key, not self:GetChecked())
+    end)
+    
+    return checkbox
+end
+
+-- ============================================================================
+-- Crear Botón de Reset
+-- ============================================================================
+
+function SpellHistoryBar.ConfigUI:CreateResetButton(parent, yOffset)
+    local button = CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
+    button:SetPoint("TOPLEFT", parent, "TOPLEFT", 20, yOffset)
+    button:SetWidth(150)
+    button:SetHeight(25)
+    button:SetText("Reset a Valores por Defecto")
+    
+    -- Script OnClick
+    button:SetScript("OnClick", function(self)
+        SpellHistoryBar.Commands:ResetConfiguration()
+        SpellHistoryBar.ConfigUI:UpdateControls()
+    end)
+    
+    return button
+end
+
+-- ============================================================================
+-- Actualizar Controles con Valores Actuales
+-- ============================================================================
+
+function SpellHistoryBar.ConfigUI:UpdateControls()
+    if not configFrame then return end
+    
+    -- Actualizar sliders
+    if iconSizeSlider then
+        iconSizeSlider:SetValue(SpellHistoryBar:Get("iconSize"))
+    end
+    if maxIconsSlider then
+        maxIconsSlider:SetValue(SpellHistoryBar:Get("maxIcons"))
+    end
+    if fadeTimeSlider then
+        fadeTimeSlider:SetValue(SpellHistoryBar:Get("fadeTime"))
+    end
+    
+    -- Actualizar checkbox
+    if lockedCheckbox then
+        lockedCheckbox:SetChecked(not SpellHistoryBar:Get("locked"))
+    end
 end
 
 -- ============================================================================
@@ -98,11 +243,9 @@ function SpellHistoryBar.ConfigUI:Toggle()
     end
     
     if configFrame:IsShown() then
-        configFrame:Hide()
-        isConfigVisible = false
+        self:Hide()
     else
-        configFrame:Show()
-        isConfigVisible = true
+        self:Show()
     end
 end
 
@@ -126,6 +269,7 @@ function SpellHistoryBar.ConfigUI:Show()
     if not configFrame:IsShown() then
         configFrame:Show()
         isConfigVisible = true
+        self:UpdateControls()  -- Actualizar controles con valores actuales
     end
 end
 

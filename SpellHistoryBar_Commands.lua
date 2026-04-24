@@ -74,6 +74,7 @@ function SpellHistoryBar.Commands:ResetConfiguration()
     SpellHistoryBarSettings = {}
     SpellHistoryBar.Config:Initialize()
     SpellHistoryBar:Refresh()
+    SpellHistoryBarSettings.point = nil  -- No guardar la posición por defecto
     self:PrintMessage("Configuración restaurada a valores predeterminados.")
 end
 
