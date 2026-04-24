@@ -123,7 +123,7 @@ local function AddSpell(spellID)
     if BLACKLIST_SPELLS[spellID] then
         return
     end
-
+    -- print("Spell cast: " .. spellID)
     if recentSpells[spellID] and GetTime() - recentSpells[spellID] < 0.5 then
         return
     end

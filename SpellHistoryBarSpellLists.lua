@@ -24,6 +24,7 @@ SpellHistoryBar.CONTROL_SPELLS = {
     [49203] = true,  -- Hungering Cold
     [65116] = true,  -- Stoneform
     [20549] = true,  -- War Stomp
+    [48018] = true,  -- círculo-demoníaco-invocar
     -- [12654] = true,  -- ignite (Activate it if you want to be able to see when ignite is launched.)  
 }
 
@@ -122,6 +123,9 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [42223] = true,  -- rain-of-fire (effect additional hits)
     [63106] = true,  -- siphon-life (passive affliction talents)
     [48210] = true,  -- haunt (healing effect)
+    [60478] = true,  -- invocar-guardia-apocalíptico (subskill)
+    [22703] = true,  -- infernal-awakening (subskill)
+    [31117] = true,  -- aflicción-inestable (pasive effect)
 
     -- Class enchantments on weapons(Death Knight, Rogue, Shaman)
     [50401] = true,  -- Razorice (Effect Rune)
@@ -156,6 +160,10 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [109870] = true, -- Iceblast (Item: No´Kaled heroica)
     [107835] = true, -- cleansing-flames(item: Fauce)
     [109831] = true, -- drain-life (Item: Bebedora de almas heroica)
+    [99035] = true,  -- burning-treant (tier-bonus TF)
+    [99063] = true,  -- mirror-image (tier-bonus TF)
+    [99221] = true,  -- fiery-imp (tier-bonus TF)
+    [96891] = true,  -- lightning-bolt (item: condensador)
 }
 
 SpellHistoryBar.PROJECTILE_SPELLS = {
@@ -163,6 +171,7 @@ SpellHistoryBar.PROJECTILE_SPELLS = {
     [3044] = true,   -- Arcane Shot
     [53209] = true,  -- Chimera Shot
     [2643] = true,  -- Multi-Shot
+    [92315] = true,  -- Piroblast (instant cast version)
 }
 
 SpellHistoryBar.CAST_START_SPELLS = {
