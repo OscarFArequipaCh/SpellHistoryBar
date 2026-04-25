@@ -44,14 +44,14 @@ function SpellHistoryBar.ConfigUI:CreateConfigFrame()
     frame.border = frame:CreateTexture(nil, "BACKGROUND")
     frame.border:SetPoint("TOPLEFT", frame, "TOPLEFT", -1, 1)
     frame.border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 1, -1)
-    frame.border:SetTexture(0.5, 0.5, 0.5, 0.5)
+    frame.border:SetTexture(0.5, 0.5, 0.5, 0.1)
     
     -- Barra de título (área de arrastre)
     frame.titleBar = frame:CreateTexture(nil, "ARTWORK")
     frame.titleBar:SetPoint("TOPLEFT", frame, "TOPLEFT", 0, 0)
     frame.titleBar:SetPoint("TOPRIGHT", frame, "TOPRIGHT", 0, 0)
     frame.titleBar:SetHeight(25)
-    frame.titleBar:SetTexture(0.2, 0.2, 0.2, 0.8)
+    frame.titleBar:SetTexture(0, 0, 0, 0.8)
     
     -- Texto del título
     frame.title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
@@ -61,7 +61,7 @@ function SpellHistoryBar.ConfigUI:CreateConfigFrame()
     
     -- Botón de cerrar (X)
     frame.closeButton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
-    frame.closeButton:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -5, -5)
+    frame.closeButton:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -5, 3)
     frame.closeButton:SetScript("OnClick", function(self)
         SpellHistoryBar:ToggleConfig()
     end)
@@ -92,7 +92,7 @@ end
 -- ============================================================================
 
 function SpellHistoryBar.ConfigUI:PopulateConfigFrame(frame)
-    local yOffset = -35  -- Empezar debajo de la barra de título
+    local yOffset = -45  -- Empezar debajo de la barra de título
     
     -- Slider para iconSize
     iconSizeSlider = self:CreateSlider(frame, "Tamaño de Iconos", 16, 64, yOffset, "iconSize")
@@ -187,7 +187,7 @@ function SpellHistoryBar.ConfigUI:CreateResetButton(parent, yOffset)
     button:SetPoint("TOPLEFT", parent, "TOPLEFT", 20, yOffset)
     button:SetWidth(150)
     button:SetHeight(25)
-    button:SetText("Reset a Valores por Defecto")
+    button:SetText("Valores por Defecto")
     
     -- Script OnClick
     button:SetScript("OnClick", function(self)

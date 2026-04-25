@@ -59,8 +59,8 @@ function SpellHistoryBar.Minimap:CreateButton()
     button:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_LEFT")
         GameTooltip:SetText("SpellHistoryBar")
-        GameTooltip:AddLine("Click para abrir configuración", 1, 1, 1)
-        GameTooltip:AddLine("Arrastra para mover", 1, 1, 1)
+        GameTooltip:AddLine("Click izquierdo para abrir configuración", 1, 1, 1)
+        GameTooltip:AddLine("Arrastra con click derecho para mover", 1, 1, 1)
         GameTooltip:Show()
     end)
 
@@ -75,7 +75,7 @@ function SpellHistoryBar.Minimap:CreateButton()
     end)
 
     button:SetScript("OnMouseDown", function(self, button)
-        if button == "LeftButton" then
+        if button == "RightButton" then
             isDragging = true
             dragStartAngle = self:GetAngleFromMouse()
             self:SetScript("OnUpdate", function(self, elapsed)
@@ -89,7 +89,7 @@ function SpellHistoryBar.Minimap:CreateButton()
     end)
 
     button:SetScript("OnMouseUp", function(self, button)
-        if button == "LeftButton" then
+        if button == "RightButton" then
             isDragging = false
             self:SetScript("OnUpdate", nil)
             -- Guardar posición solo si se arrastró realmente
@@ -120,7 +120,6 @@ end
 
 function SpellHistoryBar.Minimap:UpdatePosition()
     if not minimapButton then return end
-    print("el angulo que se esta usando es:", SpellHistoryBarSettings.minimap.angle)
     local angle = SpellHistoryBarSettings.minimap and SpellHistoryBarSettings.minimap.angle or 45
     angle = angle % 360  -- Normalizar ángulo a 0-360
     local x = MINIMAP_RADIUS * math.cos(math.rad(angle))
