@@ -26,6 +26,9 @@ SpellHistoryBar.CONTROL_SPELLS = {
     [20549] = true,  -- War Stomp
     [48018] = true,  -- círculo-demoníaco-invocar
     -- [12654] = true,  -- ignite (Activate it if you want to be able to see when ignite is launched.)  
+    [90337] = true,  -- bad-manner (pet skill)
+    [6358] = true,   -- seduction (pet skill)
+    -- [91809] = true,  -- saltar (pet skill) (not found)
 }
 
 SpellHistoryBar.BLACKLIST_SPELLS = {
@@ -47,12 +50,15 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [96172] = true,  -- hand-of-light(passive retribution talents)
     [20170] = true,  -- seal-of-justice(hit effect)
     [20167] = true,  -- seal-of-insight(effect of regenerative shocks)
-    [101423] = true, -- seal-of-righteousness(effect additional hits)
+    [101423] = true, -- seal-of-righteousness (effect additional hits)
+    [87188] = true,  -- enlightened-judgements (effect additional hits)
     [20187] = true,  -- judgement-of-righteousness(pasive with judgment)
     [54158] = true,  -- judgement(pasive with judgment)
     [94289] = true,  -- protector-of-the-innocent(passive holy talents)
     [99075] = true,  -- righteous-flames(passive protecction talents)
     [88263] = true,  -- hammer-of-the-righteous(subskill)
+    [53652] = true,  -- beacon-of-light (subskill)
+    [86150] = true,  -- guardian-of-ancient-kings (subskill)
     -- Death Knight
     [52212] = true,  -- death-and-decay(pasive effect)
     [66216] = true,  -- plague-strike-off-hand(subskill off-hand)
@@ -66,6 +72,8 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [45470] = true,  -- death-strike(healing efect)
     [70890] = true,  -- scourge-strike (subskill)
     [50452] = true,  -- blood-parasite (passive blood talents)
+    [59754] = true,  -- rune-tap (pasive effect)
+    [91776] = true,  -- claw (pet skill)
     -- Druid
     [16953] = true,  -- Primal Fury (passive feral talents)
     [81269] = true,  -- efflorescence (pasive effect)
@@ -73,9 +81,10 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [22845] = true,  -- frenzied-regeneration (pasive effect)
     [50288] = true,  -- starfall (pasive effect)
     [44203] = true,  -- tranquility (pasive effect)
+    [33778] = true,  -- lifebloom (pasive effect) (can be useful)
     -- Rogue
     [86392] = true,  -- Main Gauche (passive combat talents)
-    -- [84745] = true,  Shallow Insight (passive combat talents)
+    -- [84745] = true,  Shallow Insight (passive combat talents) (can be useful)
     [22482] = true,  -- blade-flurry (effect additional hits)
     [57842] = true,  -- killing-spree-off-hand (subskill off-hand)
     [57841] = true,  -- killing-spree-off-hand (subskill off-hand)
@@ -90,11 +99,31 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [88767] = true,  -- fulmination (passive elemental-combat talents)
     [379] = true,    -- earth-shield (effect hit returned)
     [73921] = true,  -- Healing Rain (pasive effect)
+    [98021] = true,  -- Spirit Link (pasive effect)
+    [55533] = true,  -- glyph-of-healing-wave (glyph effect)
+    [58879] = true,  -- spirit-hunt (pet skill)
     -- Hunter
     [76663] = true,  -- wild-quiver (passive marksmanship talents)
     [53353] = true,  -- disparo-de-quimera (healing efect)
     [13481] = true,  -- tame-beast (pasive effect)
     [83077] = true,  -- improved-serpent-sting (passive survival talents)
+    [17253] = true,  -- bite (pet skill)
+    [16827] = true,  -- claw (pet skill)
+    [49966] = true,  -- smack (pet skill)
+    [53508] = true,  -- wolverine-bite (pet skill)
+    [24844] = true,  -- lightning-breath (pet skill)
+    [50498] = true,  -- tear-armor (pet skill)
+    [62800] = true,  -- silverback (pet skill)
+    [62801] = true,  -- silverback (pet skill rank 2)
+    [53401] = true,  -- rabid (pet skill)
+    [2649] = true,   -- growl (pet skill)
+    [35387] = true,  -- corrosive-spit (pet skill)
+    [95725] = true,  -- froststorm-breath (pet skill)
+    [54644] = true,  -- frost-breath (pet skill)
+    [95714] = true,  -- burrow-attack (pet skill)
+    [55749] = true,  -- acid-spit (pet skill)
+    [57386] = true,  -- stampede (pet skill)
+    [54680] = true,  -- monstrous-bite (pet skill)
     -- Priest
     [49821] = true,  -- mind-sear (effect additional hits)
     [2944] = true,   -- devouring-plague (pasive effect)
@@ -106,6 +135,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [20473] = true,  -- holy-shock (subskill)
     [88686] = true,  -- Holy Word: Sanctuary (pasive effect)
     [87426] = true,  -- shadowy-apparition (passive shadow talents)
+    [63619] = true,  -- shadowcrawl (pet skill)
     -- Mage
     [84721] = true,  -- frostfire-orb (pasive effect)
     [82739] = true,  -- flame-orb (pasive effect)
@@ -115,6 +145,7 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [58834] = true,  -- mirror-image (subskill)
     [34913] = true,  -- molten-armor (effect hit returned)
     [44461] = true,  -- living-bomb (explosion hit)
+    [31707] = true,  -- waterbolt (pet skill)
     -- Warlock
     [54181] = true,  -- fel-synergy (passive demonology talents)
     [50590] = true,  -- immolation (pasive effect)
@@ -126,6 +157,13 @@ SpellHistoryBar.BLACKLIST_SPELLS = {
     [60478] = true,  -- invocar-guardia-apocalíptico (subskill)
     [22703] = true,  -- infernal-awakening (subskill)
     [31117] = true,  -- aflicción-inestable (pasive effect)
+    [3110] = true,   -- firebolt (pet skill)
+    [3716] = true,   -- torment (pet skill)
+    [54049] = true,  -- shadow-bite (pet skill)
+    [7814] = true,   -- lash-of-pain (pet skill)
+    [30153] = true,  -- pursuit (pet skill)
+    [30213] = true,  -- legion-strike (pet skill)
+    [89753] = true,  -- felstorm (pet skill)
 
     -- Class enchantments on weapons(Death Knight, Rogue, Shaman)
     [50401] = true,  -- Razorice (Effect Rune)
@@ -172,10 +210,14 @@ SpellHistoryBar.PROJECTILE_SPELLS = {
     [53209] = true,  -- Chimera Shot
     [2643] = true,  -- Multi-Shot
     [92315] = true,  -- Piroblast (instant cast version)
+    [77799] = true,  -- Fel Flame
+    [30455] = true,  -- Ice Lance
 }
 
 SpellHistoryBar.CAST_START_SPELLS = {
     -- Spells that are detected with SPELL_CAST_START
     [88685] = true,  -- Holy Word: Sanctuary
     [73920] = true,  -- Healing Rain
+    [32375] = true,  -- Mass Dispel
+    -- [91809] = true,  -- saltar (pet skill) (not found)
 }

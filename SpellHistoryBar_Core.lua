@@ -85,7 +85,7 @@ function SpellHistoryBar.Core:ProcessCombatLogEvent(...)
           spellID, spellName = ...
     
     -- Filtrar: solo hechizos del jugador
-    if not sourceGUID or sourceGUID ~= UnitGUID("player") then
+    if not sourceGUID or sourceGUID ~= UnitGUID("player") and sourceGUID ~= UnitGUID("pet") then
         return
     end
     
